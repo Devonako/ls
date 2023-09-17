@@ -37,19 +37,19 @@ bool ListDirectoryContents(const wchar_t* sDir)
         {
             //Build up our file path using the passed in 
             //  [sDir] and the file/foldername we just found: 
-            wsprintfW(sPath, L"%s\\%s    ", sDir, fdFile.cFileName);
+            wsprintfW(sPath, L"%s\\%s", sDir, fdFile.cFileName);
         
             //Is the entity a File or Folder? 
             if (fdFile.dwFileAttributes & 0x00000010)
             {
 
-                wprintf("\x1b[34m" L"%s", sPath);
+                wprintf("\x1b[34m" L"%s  ", sPath);
                 printf("\x1b[0m");
                 //wprintf(L"Directory: %s\n", sPath);
                 //ListDirectoryContents(sPath); //Recursion, I love it! 
             }
             else {
-                wprintf("\x1b[31m" L"%s    ", sPath);
+                wprintf("\x1b[31m" L"%s  ", sPath);
                 printf("\x1b[0m");
             }
         }
